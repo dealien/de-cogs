@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "dealien",
+    "DESCRIPTION" : "Simple test cog",
+    "DISABLED" : false,
+    "NAME" : "mycog",
+    "SHORT": "Test cog",
+    "TAGS": ["test"]
+}
