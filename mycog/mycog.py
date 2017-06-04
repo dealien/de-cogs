@@ -58,6 +58,7 @@ class Mycog:
         url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
         async with aiohttp.get(url) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
+        await self.bot.say(soupObject)
         try:
             online = soupObject.find(class_='home-stats').find('li').find('strong').get_text()
             await self.bot.say(online + ' players are playing this game at the moment')
