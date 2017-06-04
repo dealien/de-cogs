@@ -49,5 +49,6 @@ class Mycog:
         except:
             await self.bot.say("Couldn't load data.")
 
+            
 def setup(bot):
     bot.add_cog(Mycog(bot))
