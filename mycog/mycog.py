@@ -26,14 +26,14 @@ class Mycog:
 
                 #Command function
                 await self.bot.say("I can do stuff!")
-    
+
         @commands.command()
         async def punch(self, user : discord.Member):
                 """I will puch anyone! >.<"""
 
                 #Command function
                 await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
-    
+
         @commands.command()
 	async def gtakd(self):
 	        """Check the kill-death ratio of a player in Grand Theft Auto: Online"""
