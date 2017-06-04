@@ -13,6 +13,13 @@ class Mycog:
 
         #Your code will go here
         await self.bot.say("I can do stuff!")
+    
+    @commands.command()
+async def punch(self, user : discord.Member):
+    """I will puch anyone! >.<"""
+
+    #Your code will go here
+await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
 def setup(bot):
     bot.add_cog(Mycog(bot))
