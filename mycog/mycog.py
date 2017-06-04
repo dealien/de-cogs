@@ -52,7 +52,7 @@ class Mycog:
     
     @commands.command()
     async def gtakd(self):
-        """How many players are online atm?"""
+        """Check the kill-death ratio of a player in Grand Theft Auto: Online"""
 
         # Your code will go here
         url = "https://steamdb.info/app/570/graphs/" #build the web adress
@@ -62,7 +62,7 @@ class Mycog:
             online = soupObject.find(class_='home-stats').find('li').find('strong').get_text()
             await self.bot.say(online + ' players are playing this game at the moment')
         except:
-            await self.bot.say("Couldn't load amount of players. No one is playing this game anymore or there's an error.")
+            await self.bot.say("Couldn't load data.")
 
 
 def setup(bot):
