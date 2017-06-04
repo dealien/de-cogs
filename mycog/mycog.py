@@ -58,7 +58,7 @@ class Mycog:
         # Your code will go here
         url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
         cookiedata = dict(rockstarweb_lang.prod='en', CSRFToken='nq4_lk7c1Zvq_BAIgXoMzY4hlIExTYcSdAz10UlcOGDTaT9mD0QVKKWaUmfTCkgHtfWBFiV6pe5coQ9s6jmhsep5ha81')
-        async with aiohttp.get(url, cookies=cj) as response:
+        async with aiohttp.get(url, cookies=cookiedata) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
         await self.bot.say(soupObject)
         try:
