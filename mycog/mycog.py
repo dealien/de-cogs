@@ -57,11 +57,13 @@ class Mycog:
 
         # Your code will go here
         url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
-        async with aiohttp.get(url) as response:
+        cj = browser_cookie3.firefox()
+        async with aiohttp.get(url, cookies=cj) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
         await self.bot.say(soupObject)
         try:
             ratio = soupObject.find('td', text = re.compile('^(Player vs Player Kill / Death ratio)$')).next.get_text()
+            
             await self.bot.say(ratio + ' K/D')
         except:
             await self.bot.say("Couldn't load data.")
