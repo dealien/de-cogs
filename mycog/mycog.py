@@ -7,6 +7,7 @@ try: # Check if BeautifulSoup4 is installed
 except:
     soupAvailable = False
 import aiohttp
+import browser_cookie3
 
 def setup(bot):
     if soupAvailable:
