@@ -55,7 +55,7 @@ class Mycog:
         """Check the kill-death ratio of a player in Grand Theft Auto: Online"""
 
         # Your code will go here
-        url = "https://steamdb.info/app/570/graphs/" #build the web adress
+        url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
         async with aiohttp.get(url) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
         try:
