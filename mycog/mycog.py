@@ -34,40 +34,20 @@ class Mycog:
 
         # Command function
         await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
-
-    # @commands.command()
-    # async def gtakd(self):
-    #     """Check the kill-death ratio of a player in Grand Theft Auto: Online"""
-
-    #     # Command function
-    #     # Build the web address
-    #     url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
-    #     async with aiohttp.get(url) as response:
-    #     soupObject = BeautifulSoup(await response.text(), "html.parser")
-    #     print soupObject
-    #     try:
-    #         online = soupObject.find(class_='home-stats').find('li').find('strong').get_text()
-    #         await self.bot.say(online + ' players are playing this game at the moment')
-    #     except:
-    #         await self.bot.say("Couldn't load data.")
     
     @commands.command()
-    async def gtakd(self):
-        """Check the kill-death ratio of a player in Grand Theft Auto: Online"""
+    async def dotanow(self):
+        """How many players are online atm?"""
 
-        # Your code will go here
-        url = "https://socialclub.rockstargames.com/member/--zephyr--/games/gtav/pc/career/stats/gtaonline/career"
-        cookiedata = {'rockstarweb_lang.prod': 'en', 'CSRFToken': 'nq4_lk7c1Zvq_BAIgXoMzY4hlIExTYcSdAz10UlcOGDTaT9mD0QVKKWaUmfTCkgHtfWBFiV6pe5coQ9s6jmhsep5ha81'}
-        async with aiohttp.get(url, cookies=cookiedata) as response:
+        #Your code will go here
+        url = "https://steamdb.info/app/570/graphs/" #build the web adress
+        async with aiohttp.get(url) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
-        await self.bot.say(soupObject)
         try:
-            ratio = soupObject.find('td', text = re.compile('^(Player vs Player Kill / Death ratio)$')).next.get_text()
-            
-            await self.bot.say(ratio + ' K/D')
+            online = soupObject.find(class_='home-stats').find('li').find('strong').get_text()
+            await self.bot.say(online + ' players are playing this game at the moment')
         except:
-            await self.bot.say("Couldn't load data.")
-
+            await self.bot.say("Couldn't load amount of players. No one is playing this game anymore or there's an error.")
 
 def setup(bot):
     bot.add_cog(Mycog(bot))
