@@ -51,7 +51,7 @@ class Mycog:
     #         await self.bot.say("Couldn't load data.")
     
     @commands.command()
-    async def dotanow(self):
+    async def gtakd(self):
         """How many players are online atm?"""
 
         # Your code will go here
