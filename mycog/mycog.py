@@ -39,7 +39,7 @@ class Mycog:
     async def dotanow(self):
         """How many players are online atm?"""
 
-        #Your code will go here
+        # Command function
         url = "https://steamdb.info/app/570/graphs/" #build the web adress
         async with aiohttp.get(url) as response:
             soupObject = BeautifulSoup(await response.text(), "html.parser")
